@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+main #notice_wrap h2{
+    font-size:2vw;
+    width:95%;
+    margin:2vw 0 0 2vw;
+    padding:1vw;
+    box-sizing: border-box;
+    border-bottom:2px solid #666;
+}
+
+main #notice_wrap #notice_write_form{
+    text-align:right;
+    margin:1vw 0;
+    padding-right:4vw;
+    font-size:1vw;
+}
+main #notice_wrap #notice_write_form a{
+    color:#000;
+    text-decoration:none;
+}
+main #notice_wrap #notice_write_form a:hover{
+    color:#00f;
+}
+main #notice_wrap table{
+    width:90%;
+    margin:2vw 5vw;
+}
+main #notice_wrap th{
+    font-size:1.5vw;
+    padding:.5vw;
+    border-bottom:2px solid #ccc;
+}
+main #notice_wrap td{
+    text-align: center;
+    font-size:1vw;
+    height:2vw;
+    line-height:2vw;
+}
+main #notice_wrap td a{
+    text-decoration:none;
+    color:#000;
+}
+main #notice_wrap td a:hover{
+    color:#00f;
+}
+main #notice_wrap th:first-child{
+    width:10%;
+}
+main #notice_wrap th:nth-child(2){
+    width:60%;
+}
+

@@ -1,0 +1,35 @@
+@charset "UTF-8";
+input{
+    padding:0;
+    margin:0;    
+}
+#regist_wrap{
+    display:inline-block;
+    width:32%;
+    margin:5% 34% 5%;
+}
+#regist_wrap{
+    font-size:1.5vw;
+}
+#regist_wrap td{
+width:10vw;
+padding-bottom:1vw;
+vertical-align: middle;
+height:2vw;
+}
+#regist_wrap td input{
+    width:20vw;
+    height:1.5vw;
+ 
+}
+#regist_wrap td input[type="radio"]{
+    width:2vw;
+
+}
+#regist_wrap td input[type="submit"],#regist_wrap td input[type="reset"]{
+    width:10vw;
+    margin-left:3vw;
+    font-size:1vw;
+    height:2vw;
+    line-height: 2vw;
+}

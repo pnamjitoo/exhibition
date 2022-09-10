@@ -1,0 +1,95 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/itemInfo.css" rel="stylesheet">
+
+</head>
+<body>
+    <%@ include file="/source/main/header.jsp" %>
+    
+    <main>
+        <h2>
+            전시회이름 
+            <span>1</span>
+            <span  id="count">조회수 :</span>
+            <span>2020.09.13</span>
+            <span id="add">등록날짜 :</span>
+        </h2>
+        <div id="item_img">
+
+        </div>
+        <div id="item_text">
+            <div class="head">
+                이름
+            </div><!--//head-->
+            <div class="text">
+                O O 전시회
+            </div><!--//text-->
+            <div class="head">
+                개최장소
+            </div><!--//head-->
+            <div class="text">
+                 서울시
+            </div><!--//text-->
+            <div class="head">
+                가격
+            </div><!--//head-->
+            <div class="text">
+                 12345원
+            </div><!--//text-->
+            <div class="head">
+                할인율
+            </div><!--//head-->
+            <div class="text">
+                 5%
+            </div><!--//text-->
+            <div class="head">
+                재고
+            </div><!--//head-->
+            <div class="text">
+                 100개
+            </div><!--//text-->
+            <div class="head">
+                개장날짜
+            </div><!--//head-->
+            <div class="text">
+                 2020.09.15
+            </div><!--//text-->
+            <div class="head">
+                종료날짜
+            </div><!--//head-->
+            <div class="text">
+                 2020.09.18
+            </div><!--//text-->
+            <div id="fav">
+                좋아요 : <span>1</span>
+            </div>
+        </div><!--//item_text-->
+        <div id="item_info">
+            <h2>전시회설명</h2>
+            <div  class="info">
+                이 전시회는 ...
+            </div><!--//info-->
+        </div><!--//item_info-->
+        <div id="rev_photo">
+            <h2>리뷰사진</h2>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </main>
+    
+    <%@include file="/source/main/footer.jsp" %>
+</body>
+</html>

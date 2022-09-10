@@ -1,0 +1,40 @@
+;(function($){
+    $(function(){
+        $("#member_btn").click(function(){
+            $("#member_wrap").add(this).toggleClass("open");
+        });
+        $("#member_close").click(function(){
+            $("#member_wrap").add(this).toggleClass("open");
+        });
+        $("#btn1").click(function(){
+            $(".tap_sub").add(this).removeClass("open");
+            $("#tap1_sub").add(this).addClass("open");
+        });
+        $("#btn2").click(function(){
+            $(".tap_sub").add(this).removeClass("open");
+            $("#tap2_sub").add(this).addClass("open");
+        });
+        $("#btn3").click(function(){
+            $(".tap_sub").add(this).removeClass("open");
+            $("#tap3_sub").add(this).addClass("open");
+        });
+        $("#btn4").click(function(){
+            $(".tap_sub").add(this).removeClass("open");
+            $("#tap4_sub").add(this).addClass("open");
+        });
+        $("#btn5").click(function(){
+            $(".tap_sub").add(this).removeClass("open");
+            $("#tap5_sub").add(this).addClass("open");
+        });
+
+        $("#profile_btn").click(function(){
+            $("#profile_layer").add(this).addClass("open");
+            $("#cart_layer").add(this).removeClass("open");
+        });
+        $("#cart_btn").click(function(){
+            $("#profile_layer").add(this).removeClass("open");
+            $("#cart_layer").add(this).addClass("open");
+        });
+       
+    });
+})(jQuery);
