@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%if(session.getAttribute("not_list") == null){
+	  response.sendRedirect("/exhibition/NoticeServlet?command=notice_list");
+} else if(session.getAttribute("not_list") == null){
+	  response.sendRedirect("/exhibition/NoticeServlet?command=notice_list");
+}
+%>
 <html>
 <head>
     <meta charset='utf-8'>
@@ -11,11 +17,11 @@
     <link href="${pageContext.request.contextPath}/css/style.css?ver=1" rel="stylesheet"/>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="js/jquery.bxslider.js" ></script>
-    <script src="js/jquery.clickToGiveClass.js"></script>
-    <script src="js/jquery.scrollToGiveClass.js"></script>
-    <script src="js/jquery.slidy.js"></script>
-    <script src="js/script.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.bxslider.js" ></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.clickToGiveClass.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.scrollToGiveClass.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.slidy.js"></script>
+    <script src="${pageContext.request.contextPath}/js/script.js"></script>
 
 </head>
 <body>
@@ -28,7 +34,7 @@
             </div><!--//main_banner-->
 
             <div id="best_item">
-                    <h2>베스트 아이템</h2>
+                    <h2>Best</h2>
                 <div id="best_tap">
                     <ul>
                         <li>
@@ -108,7 +114,7 @@
             </div><!--//review-->
 
             <div id="notice">
-                <h2>공지사항</h2>
+                <h2>Notice</h2>
                 <table>
                     <tr>
                         <th>번호</th>
@@ -125,7 +131,7 @@
                 </table>
             </div>
             <div id="pub">
-                <h2>홍보게시판</h2>
+                <h2>Promotion</h2>
             </div>
         </main><!--//main-->
         

@@ -1,16 +1,44 @@
 @charset "UTF-8";
+
+@font-face {
+    font-family: 'HSBombaram3_Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.1/HSBombaram3_Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+
+.nanummyeongjo * {
+ font-family: 'Nanum Myeongjo', serif;
+}
+
+@font-face {
+    font-family: 'EF_MACHO';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/EF_MACHO.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
 header{
         width:100%;
     }
     header #logo{
         display:inline-block;
         width:20%;
-        height:7vw;
+        height:6.5vw;
         margin:1% 0 0 1%;
-        background-color: #ccc;
+        /* background-color: #ccc; */
     }
     /* top_menu */
     header #top_menu{
+    	font-family: 'Nanum Myeongjo', serif;
         display:inline-block;
         float:right;
         width:50%;
@@ -35,9 +63,10 @@ header{
     }
     /* main_menu */
     header #main_menu{
+    	font-family: 'Nanum Myeongjo', serif;
         height:3vw;
         margin-top:1%;
-        background-color: rgb(255, 248, 174);
+        background-color: #000;
     }
 
     header #main_menu{

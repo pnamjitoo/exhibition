@@ -26,4 +26,10 @@
     <!--
     <Manager pathname="" />
     -->
+  <Resource auth="Container" 
+  driverClassName="oracle.jdbc.driver.OracleDriver" 
+  maxWaitMillis="10000" name="jdbc/myoracle" 
+  password="1234" type="javax.sql.DataSource" 
+  url="jdbc:oracle:thin:@localhost:1521:XE" 
+  username="system"/>
 </Context>

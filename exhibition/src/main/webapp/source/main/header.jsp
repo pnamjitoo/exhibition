@@ -23,7 +23,7 @@
     <div id="wrap">
         <header>
             <div id="logo">
-
+				<img width='350' height='90' src="${pageContext.request.contextPath}/image/exhiplat.png">
             </div><!--//logo-->
             <div id="top_menu">
                 <ul>
@@ -31,19 +31,19 @@
 로그아웃한 사용자에게 보이는 구성대로 나눠주세요      -->       
 				<!-- 로그인 정보가 없는 사용자  -->   
                 <%if (session.getAttribute("loginUser") == null) {%>
-                    <li><a href="/exhibition/source/member/login.jsp">로그인</a></li>
-                    <li><a href="/exhibition/source/member/regist.jsp">회원가입</a></li>
+                    <li><a href="/exhibition/source/member/login.jsp">login</a></li>
+                    <li><a href="/exhibition/source/member/regist.jsp">join</a></li>
                 <%} else { %>
                 <!-- 로그인 정보가 있는 사용자  -->
-                	<li><a href="/exhibition/MemberServlet?command=logout">로그아웃</a></li>
+                	<li><a href="/exhibition/MemberServlet?command=logout">logout</a></li>
                 <%} %>
-                    <li><a href="/exhibition/source/pay/cart.jsp">장바구니</a></li>
-                    <li><a href="/exhibition/MemberServlet?command=mypage">My page</a></li>
+                    <li><a href="/exhibition/source/pay/cart.jsp">cart</a></li>
+                    <li><a href="/exhibition/MemberServlet?command=mypage">my page</a></li>
                 </ul>
             </div><!--//top_menu-->
             <nav id="main_menu">
                 <ul>
-                    <li><a href="board.jsp">전시현황</a>
+                    <li><a href="board.jsp">exhibition</a>
                         <div id="menu_sub">
                             <ul>
                                 <li><a href="/source/board.jsp">전체보기</a></li>
@@ -55,9 +55,9 @@
                             </ul>
                         </div>
                     </li>
-                    <li><a href="#">홍보게시판</a></li>
-                    <li><a href="/exhibition/NoticeServlet?command=notice_list">공지사항</a></li>
-                    <li><a href="#">리뷰게시판</a></li>
+                    <li><a href="#">promotion</a></li>
+                    <li><a href="/exhibition/NoticeServlet?command=notice_list">notice</a></li>
+                    <li><a href="#">review</a></li>
                     <li>
                     <label for="search"></label>
                     <input type="checkbox" id="search" >

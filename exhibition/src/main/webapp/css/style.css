@@ -13,8 +13,24 @@
     font-style: normal;
 }
 
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+@import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+
+.nanummyeongjo * {
+ font-family: 'Nanum Myeongjo', serif;
+}
+
+* {
+	font-family: 'Nanum Myeongjo', serif;
+}
+
 main #main_banner{
-    height:30vw;
+    height:50vw;
     text-align: center;
     background-color: #ccc;
 }
@@ -27,7 +43,6 @@ main #best_item{
     position:relative;    
 }
 main #best_item h2{
-	font-family: 'HSBombaram3_Regular';
     display:inline-block;
     width:15%;
     height: 3vw;

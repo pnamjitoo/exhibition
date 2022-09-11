@@ -20,7 +20,7 @@
 	                </ul>
 	            </div><!--//footer_menu-->
 	            <div class="footer_logo">
-	            
+	            <img src="${pageContext.request.contextPath}/image/exhiplat.png" width="250" height="70">
 	            </div>
 	            <div id="footer_info">
 	                ㈜ ㅁㅁ(대표자:김남지)<br>

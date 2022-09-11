@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import util.DBManager;
+import util.PagingVO;
 
 public class NoticeDAO{
 	private NoticeDAO() {
@@ -19,9 +20,42 @@ public class NoticeDAO{
 		return instance;
 	}
 	
-	//공지사항 목록 출력 메소드
-	public List<NoticeVO> selectAllNotices(){
-		String sql ="select not_no, title, id, nick, rdate, not_rdcnt from notice order by not_no desc";
+	//공지사항 페이징 메소드(전체 갯수 조회)
+	public int countNotice() {
+		int total = 0;
+		String sql ="SELECT COUNT(*) FROM notice";
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DBManager.getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				PagingVO pVo = new PagingVO();
+				pVo.setTotal(rs.getInt("COUNT(*)"));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, stmt, rs);
+		}
+		return total;
+		
+	}
+	
+	//공지사항 페이징 목록 출력 메소드
+	public public List<NoticeVO> selectAllNotices(PagingVO vo){
+		String sql ="	SELECT * \r\n"
+				+ "		FROM (\r\n"
+				+ "			SELECT ROWNUM RN, A.* \r\n"
+				+ "				FROM (\r\n"
+				+ "						SELECT * \r\n"
+				+ "						FROM BOARD \r\n"
+				+ "						ORDER BY SEQ DESC \r\n"
+				+ "						) A\r\n"
+				+ "				)\r\n"
+				+ "	WHERE RN BETWEEN #{start} AND #{end}";
 		List<NoticeVO> list = new ArrayList<NoticeVO>();
 		Connection conn = null;
 		Statement stmt = null;
