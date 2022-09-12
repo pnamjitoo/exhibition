@@ -1,0 +1,9 @@
+package com.exhibition.item;
+
+import com.exhibition.notice.NoticeDAO;
+
+public class ItemDAO {
+
+}
+
+private static ItemDAO instance = new ItemDAO();

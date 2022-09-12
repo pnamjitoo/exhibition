@@ -1,0 +1,87 @@
+package com.exhibition.item;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.exhibition.controller.Action;
+
+public class ItemListAction implements Action {
+	@Override
+	  public void execute(HttpServletRequest request, HttpServletResponse response)
+	  throws ServletException, IOException { 
+			int nowPage = 1;
+			int cntPerPage = 10;
+			request.setCharacterEncoding("utf-8");
+			response.setCharacterEncoding("utf-8");
+			if (request.getParameter("nowPage") != null) {
+				nowPage = Integer.parseInt(request.getParameter("nowPage").toString());
+			}
+			if (request.getParameter("cntPerPage") != null) {
+				cntPerPage = Integer.parseInt(request.getParameter("cntPerPage").toString());
+			}
+			int tema_no = Integer.parseInt(request.getParameter("tema_no").toString());
+			System.out.println("temano: " + tema_no + "nowPage: " + nowPage + "cntPerPage: " + cntPerPage);
+			response.getWriter().write(getJson(tema_no, nowPage, cntPerPage));
+			HttpSession session = request.getSession();
+			/*
+			 * if (request.getParameter("onBoard") == null) { RequestDispatcher dispather =
+			 * request.getRequestDispatcher("/source/item/board.jsp");
+			 * dispather.forward(request,response); }
+			 */
+		}
+	//ajax 통신 이용
+	public String getJson(int tema_no, int nowPage, int cntPerPage){
+		
+		StringBuffer result = new StringBuffer("");
+		ItemDAO iDao = ItemDAO.getInstance();
+		List<ItemVO> itemList = iDao.selectAllItems(tema_no, nowPage, cntPerPage);
+		result.append("{\"result\":[");
+		for (int i = 0; i<itemList.size() - 1; i++) {
+			result.append("{\"item_no\": \"" + itemList.get(i).getItem_no() + "\",");
+			result.append("\"item_name\": \"" + itemList.get(i).getItem_name() + "\",");
+			result.append("\"price\": \"" + itemList.get(i).getPrice() + "\",");
+			result.append("\"benefit\": \"" + itemList.get(i).getBenefit() + "\",");
+			result.append("\"sale\": \"" + itemList.get(i).getSale() + "\",");
+			result.append("\"num\": \"" + itemList.get(i).getNum() + "\",");
+			result.append("\"item_content\": \"" + itemList.get(i).getItem_content() + "\",");
+			result.append("\"place\": \"" + itemList.get(i).getPlace() + "\",");
+			result.append("\"location\": \"" + itemList.get(i).getLocation() + "\",");
+			result.append("\"likes\": \"" + itemList.get(i).getLikes() + "\",");
+			result.append("\"hits\": \"" + itemList.get(i).getHits() + "\",");
+			result.append("\"opendate\": \"" + itemList.get(i).getOpendate() + "\",");
+			result.append("\"closedate\": \"" + itemList.get(i).getClosedate() + "\",");
+			result.append("\"item_photo\": \"" + itemList.get(i).getItem_photo() + "\",");
+			result.append("\"runtime\": \"" + itemList.get(i).getRuntime() + "\",");
+			result.append("\"item_age\": \"" + itemList.get(i).getItem_age() + "\",");
+			result.append("\"item_rdate\": \"" + itemList.get(i).getItem_rdate() + "\",");
+			result.append("\"tema_no\": \"" + itemList.get(i).getTema_no() + "\"},");
+		}
+		result.append("{\"item_no\": \"" + itemList.get(itemList.size() - 1).getItem_no() + "\",");
+		result.append("\"item_name\": \"" + itemList.get(itemList.size() - 1).getItem_name() + "\",");
+		result.append("\"price\": \"" + itemList.get(itemList.size() - 1).getPrice() + "\",");
+		result.append("\"benefit\": \"" + itemList.get(itemList.size() - 1).getBenefit() + "\",");
+		result.append("\"sale\": \"" + itemList.get(itemList.size() - 1).getSale() + "\",");
+		result.append("\"num\": \"" + itemList.get(itemList.size() - 1).getNum() + "\",");
+		result.append("\"item_content\": \"" + itemList.get(itemList.size() - 1).getItem_content() + "\",");
+		result.append("\"place\": \"" + itemList.get(itemList.size() - 1).getPlace() + "\",");
+		result.append("\"location\": \"" + itemList.get(itemList.size() - 1).getLocation() + "\",");
+		result.append("\"likes\": \"" + itemList.get(itemList.size() - 1).getLikes() + "\",");
+		result.append("\"hits\": \"" + itemList.get(itemList.size() - 1).getHits() + "\",");
+		result.append("\"opendate\": \"" + itemList.get(itemList.size() - 1).getOpendate() + "\",");
+		result.append("\"closedate\": \"" + itemList.get(itemList.size() - 1).getClosedate() + "\",");
+		result.append("\"item_photo\": \"" + itemList.get(itemList.size() - 1).getItem_photo() + "\",");
+		result.append("\"runtime\": \"" + itemList.get(itemList.size() - 1).getRuntime() + "\",");
+		result.append("\"item_age\": \"" + itemList.get(itemList.size() - 1).getItem_age() + "\",");
+		result.append("\"item_rdate\": \"" + itemList.get(itemList.size() - 1).getItem_rdate() + "\",");
+		result.append("\"tema_no\": \"" + itemList.get(itemList.size() - 1).getTema_no() + "\"}]}");
+		return result.toString();
+		
+		
+	}
+}

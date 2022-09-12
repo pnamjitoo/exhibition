@@ -1,0 +1,15 @@
+package com.exhibition.item;
+
+import com.exhibition.notice.NoticeDAO;
+
+public class ItemDAO {
+	
+	private ItemDAO() {
+	}
+	
+	private static ItemDAO instance = new ItemDAO();
+	public static ItemDAO getInstance() {
+		return instance;
+	}
+}
+

@@ -1,0 +1,55 @@
+package com.exhibition.tema;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.exhibition.controller.Action;
+import com.google.gson.Gson;
+
+public class TemaListAction implements Action {
+	@Override
+	  public void execute(HttpServletRequest request, HttpServletResponse response)
+	  throws ServletException, IOException { 
+		    String url = "/source/main/header.jsp"; 
+			HttpSession session = request.getSession();
+			session.setAttribute("tema_list", "true");
+			TemaDAO tDao = TemaDAO.getInstance();
+			List<TemaVO> temaList = tDao.selectAllTemas();
+			request.setAttribute("temaList", temaList);
+			response.getWriter().write(getJson());
+			/*
+			 * RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+			 * dispatcher.forward(request, response);
+			 */
+		}
+	
+	public String getJson(){
+		StringBuffer result = new StringBuffer("");
+		TemaDAO tDao = TemaDAO.getInstance();
+		List<TemaVO> temaList = tDao.selectAllTemas();
+		for (int i = 0; i<temaList.size() - 1; i++) {
+			result.append("{result:");
+			result.append("[{\"tema_no\": \"" + temaList.get(i).getTema_no() + "\",");
+			result.append("\"tname\": \"" + temaList.get(i).getTname() + "\"},");
+		}
+		result.append("{\"tema_no\": \"" + temaList.get(temaList.size() - 1).getTema_no() + "\",");
+		result.append("\"tname\": \"" + temaList.get(temaList.size() - 1).getTname() + "\"}]");
+		System.out.println(result.toString());
+		return result.toString();
+		/*
+		 * Gson gson = new Gson(); response.setContentType("application/json");
+		 * response.setCharacterEncoding("UTF-8"); String json = gson.toJson(temaList);
+		 * response.getWriter().write(json); System.out.println(json); RequestDispatcher
+		 * dispather = request.getRequestDispatcher(url);
+		 * dispather.forward(request,response);
+		 */
+		 
+	}
+}

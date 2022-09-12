@@ -1,0 +1,110 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="java.sql.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="${pageContext.request.contextPath}/css/reset.css?ver=1" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/css/header.css?ver=1" rel="stylesheet"/>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.bxslider.js?ver=1" ></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.clickToGiveClass.js?ver=1"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.scrollToGiveClass.js?ver=1"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.slidy.js?ver=1"></script>
+    <script src="${pageContext.request.contextPath}/js/script.js?ver=1"></script>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div id="logo">
+				<img width='350' height='90' src="${pageContext.request.contextPath}/image/exhiplat.png">
+            </div><!--//logo-->
+            <div id="top_menu">
+                <ul>
+<!-- 로그인한 사용자에게 보이는 구성,
+로그아웃한 사용자에게 보이는 구성대로 나눠주세요      -->       
+				<!-- 로그인 정보가 없는 사용자  -->   
+                <%if (session.getAttribute("loginUser") == null) {%>
+                    <li><a href="/exhibition/source/member/login.jsp">login</a></li>
+                    <li><a href="/exhibition/source/member/regist.jsp">join</a></li>
+                <%} else { %>
+                <!-- 로그인 정보가 있는 사용자  -->
+                	<li><a href="/exhibition/MemberServlet?command=logout">logout</a></li>
+                <%} %>
+                    <li><a href="/exhibition/source/pay/cart.jsp">cart</a></li>
+                    <li><a href="/exhibition/MemberServlet?command=mypage">my page</a></li>
+                </ul>
+            </div><!--//top_menu-->
+ 
+<script type="text/javascript" language="javascript">
+    $(document).ready(function(){
+        $.ajax({
+            type : "GET",
+            url : "/exhibition/TemaServlet?command=tema_list",
+            error : function(){
+                alert("통신실패!!!!");
+            },
+            success : function(result){
+                //alert("통신 데이터 값 : " + result);
+                var html = "";
+                $.each(JSON.parse(result), function(index, item) {
+                	for (var i=0; i<item.length; i++){
+	                    //alert(index + ": " + JSON.stringify(item[i]));
+	                    var temaList = JSON.parse(JSON.stringify(item[i]));
+	                    var tema_no = temaList["tema_no"].toString();
+	                    var tname = temaList["tname"].toString();
+						html = html + "<h2>" + tema_no + "</h2>"
+						html = html + "<li><a href=\"/exhibition/ItemServlet?command=item_list&tema_no=" + tema_no + ">" + tname + "</a></li>";
+                	}
+                	console.log(tema_no);
+                	console.log(tname);
+                });
+        		$("#tema").html(html);
+            }
+        });
+    });
+</script>
+<%--             <% if (session.getAttribute("tema_list") == null) {
+					response.sendRedirect("/exhibition/TemaServlet?command=tema_list");
+				} else {
+					session.setAttribute("tema_list", null);
+					request.setCharacterEncoding("utf-8");
+				}%> --%>
+            <nav id="main_menu">
+                <ul>
+                    <li><a href="/exhibition/source/tema/board.jsp">exhibition</a>
+                        <div id="menu_sub">
+                            <ul id = "tema">        	
+<%--                             <c:forEach var="tema" items="${temaList}">
+            					<h2>${tema.tname }</h2>
+                                <li><a href="/exhibition/ItemServlet?command=item_list&tema_no="${tema.tema_no }>${tema.tname }</a></li>
+                            </c:forEach> --%>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#">promotion</a></li>
+                    <li><a href="/exhibition/NoticeServlet?command=notice_list">notice</a></li>
+                    <li><a href="#">review</a></li>
+                    <li>
+                    <label for="search"></label>
+                    <input type="checkbox" id="search" >
+                        <div id="search_bar">
+                            <form>
+                                <input type="text" name="search">
+                                <label for="search_btn"></label>
+                                <input type="submit" value="검색" id="search_btn">
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </nav><!--//main_menu-->
+        </header><!--//header-->
+    </div><!--//wrap-->
+</body>
+</html>

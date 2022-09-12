@@ -1,0 +1,100 @@
+@charset "UTF-8";
+main{
+    height:80vw;
+}
+
+main h2{
+    font-size:2.5vw;
+    margin-top :3vw;
+    margin-left: 10vw;
+}
+main h2 span#count,main h2 span#add{
+    margin-right:1vw;
+}
+main h2 span{
+    float:right;
+    font-size:2vw;
+    margin-right:5vw;
+    line-height:2.5vw;
+}
+main #item_img{
+    float:left;
+    display:inline-block;
+    width: 30%;
+    height:30vw;
+    margin-top: 5vw;
+    margin-left:15vw; 
+    outline:1px solid #f00;
+    margin-bottom:4vw;
+}
+main #item_text{
+    float:left;
+    display:inline-block;
+    width:40%;
+    height: 28vw;
+    margin-top:5vw;
+    margin-left: 5vw;
+    padding-top:2vw;
+}
+main #item_text .head{
+    display:inline-block;
+    width:30%;
+    float:left;
+    height:2vw;
+    line-height: 2vw;
+    font-size:2vw;
+    clear:both;
+    margin-bottom:1vw;
+    
+}
+main #item_text .text{
+    display:inline-block;
+    width:70%;
+    float:left;
+    height:2vw;
+    font-size:1.5vw;
+    line-height: 2vw;
+    text-align:center;
+}
+main #item_text #fav{
+    clear:both;
+    display:inline-block;
+    width:30%;
+    height:5vw;
+    margin-top:1vw;
+    margin-left:2vw;
+    text-align:center;
+    line-height: 5vw;
+}
+
+main #item_info{
+    clear:both;
+    margin-bottom:3vw;
+}
+main #item_info h2{
+    font-size:2vw;
+}
+main #item_info .info{
+    padding:2vw 0 0 15vw;
+}
+main #rev_photo{
+    margin-left:8vw;   
+}
+main #rev_photo h2{
+    margin:0;
+    padding:1vw 0;
+    display:inline-block;
+    width: 90%;
+    border-bottom:2px solid #999;
+    margin-bottom:2vw;
+}
+main #rev_photo ul{
+    font-size:0;
+}
+main #rev_photo li{
+    display: inline-block;
+    width:15%;
+    height:16vw;
+    margin-left:2vw;
+    outline:1px solid #f00;
+}

@@ -1,0 +1,210 @@
+@charset "UTF-8";
+main{
+    height:45vw;
+}
+
+main #mypage_wrap.open{
+    background-color: rgba(0,0,0,.5);
+    width:100%;
+    height:100%;
+    position: fixed;
+}
+main #page_menu{
+    width:30%;
+    height:100%;
+    box-shadow: 2px 0 5px 3px rgb(255, 248, 174,.7);
+    float:left;
+}
+main #page_menu .logo{
+    display:inline-block;
+    width:10vw;
+    height:3vw;
+    line-height: 3vw;
+    text-align: center;
+    font-size:2vw;
+    margin:2vw 0 0 2vw;
+}
+main #page_menu .user_name{
+    margin-top:10vw;
+    text-align: center;
+    height:3vw;
+    line-height: 3vw;
+    font-size:2vw;
+    font-weight:bold;
+}
+
+main #page_menu .user_nick{
+    text-align:center;
+    color:#999;
+    font-size:1.5vw;
+    margin-bottom:5vw;
+    height:2.5vw;
+    line-height:2.5vw;
+}
+main #page_menu #page_btn input{
+    display:none;
+}
+main #page_menu #page_btn input:checked +label{
+    text-decoration: underline;
+    font-weight:bold;
+}
+main #page_menu #page_btn li{
+    height:2vw;
+    text-align: center;
+    line-height: 2vw;
+    font-size:1.5vw;
+    margin-bottom:1vw;
+}
+
+main #page_menu .hr{
+    display:inline-block;
+    width:80%;
+    margin-left:10%;
+    border-bottom:2px solid #ccc;
+    margin-top:3vw;
+}   
+
+main #page_layer{
+    display:inline-block;
+    width:70%;
+    height:100%;
+    float:right;
+}
+
+main #page_layer #profile_layer{
+    width:100%;
+    height:100%;
+    display:none;
+}
+main #page_layer #profile_layer.open{
+    display:inline-block;
+}
+main #page_layer #profile_layer #profile_basic{
+    width:70%;
+    height:18vw;
+    margin:5vw 0 0 11vw;
+    border:4px solid rgb(255, 248, 174);
+    border-radius: 20px;
+}
+main #page_layer #profile_layer #profile_basic h2{
+    margin:1vw;
+    color:#333;
+    font-size:1.5vw;
+}
+
+main #page_layer #profile_layer .profile_form{
+ width:90%;
+ font-size:2vw;
+ font-weight:bold;
+ margin-left:2vw;   
+ height:3vw;
+ line-height:3vw;
+ margin-bottom:1vw;
+ vertical-align: middle;
+ border-bottom:2px solid #ccc;
+}
+main #page_layer #profile_layer .profile_form .profile_btn{
+    float:right;
+    font-size:1vw;
+    margin-top:.7vw;
+}
+main #page_layer #profile_layer #profile_nick{
+    font-weight:normal;
+    color:#ccc;
+    font-size:1.8vw;
+}
+main #page_layer #profile_layer #profile_tel span{
+    line-height:1vw;
+}
+main #page_layer #profile_layer #profile_tel img{
+    width:2vw;
+    float:left;
+    margin-top:.7vw;
+    margin-right:1vw;
+}
+#profile_regist{
+    display:none;
+}
+main #page_layer #profile_layer #profile_basic #profile_name #profile_regist.open{
+
+    background-color: #fff;
+    display:inline-block;
+    position:fixed;
+    width:25vw;
+    top:20%;
+    left:35%;
+    border-radius:1vw;
+    height:25vw;
+    border:3px solid rgb(255, 248, 174);
+
+}
+#profile_regist h3{
+    font-size:2vw;
+    font-weight:normal;
+    margin:1vw 2vw;
+}
+#profile_regist #regist_name{
+    margin:3vw 1vw;
+}
+#profile_regist #regist_update{
+    text-align: center;
+}
+#profile_regist #regist_update input[type="text"]{
+    border:0;
+    border-bottom:2px solid #ccc;
+    width:80%;
+    font-size:1vw;
+}
+#profile_regist #regist_update input[type="submit"]{
+    font-size:1vw;
+    margin-left:4vw;
+}
+main #page_layer #profile_layer #profile_basic #profile_name #profile_regist #regist_update .profile_btn{
+vertical-align: bottom;
+margin-top:7vw;
+font-size:1vw;
+margin-right:1vw;
+}
+
+main #page_layer #profile_addr {
+    width:70%;
+    height:8vw;
+    margin:5vw 0 2vw 11vw;
+    border:4px solid rgb(255, 248, 174);
+    border-radius: 20px;
+    
+}
+main #page_layer #profile_addr h2{
+    margin:1vw;
+    color:#333;
+    font-size:1.5vw;
+}
+main #page_layer #profile_addr #addr{
+    font-size:1.5vw;
+    font-weight: normal;   
+}
+main #page_layer #regist_delete{
+    margin-left:11vw;
+    text-decoration: none;
+    color:#333;
+    border:2px solid #666;
+    border-radius: 5px;
+    background-color: #ccc;
+    font-size:1vw;
+}
+
+main #page_layer #cart_layer{
+    width:100%;
+    height:100%;
+    display:none;
+}
+main #page_layer #cart_layer.open{
+    display:inline-block;
+}
+main #page_layer #cart_layer #cart_form{
+    width:70%;
+    height:38vw;
+    margin:5vw 0 0 11vw;
+    border:4px solid rgb(255, 248, 174);
+    border-radius: 20px;
+}

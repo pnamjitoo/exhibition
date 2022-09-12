@@ -1,0 +1,134 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="${pageContext.request.contextPath}/css/reset.css?ver=1" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/css/style.css?ver=1" rel="stylesheet"/>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.bxslider.js" ></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.clickToGiveClass.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.scrollToGiveClass.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.slidy.js"></script>
+    <script src="${pageContext.request.contextPath}/js/script.js"></script>
+
+</head>
+<body>
+    <div id="wrap">
+        <%@ include file="header.jsp" %>
+        <main>
+            <div id="main_banner">
+                <span>banner</span>
+            </div><!--//main_banner-->
+
+            <div id="best_item">
+                    <h2>Best</h2>
+                <div id="best_tap">
+                    <ul>
+                        <li>
+                            <input id="tap1" type="radio" name="tap_btns" class="tap_btn" checked>
+                            <label for="tap1" class="btns_name" id="btn1">그림전</label>
+                            <div id="tap1_sub" class="tap_sub open">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <input id="tap2" type="radio" name="tap_btns" class="tap_btn">
+                            <label for="tap2" class="btns_name"  id="btn2">사진전</label>
+                            <div id="tap2_sub" class="tap_sub">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <input id="tap3" type="radio" name="tap_btns" class="tap_btn">
+                            <label for="tap3" class="btns_name" id="btn3">체험전</label>
+                            <div id="tap3_sub" class="tap_sub">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <input id="tap4" type="radio" name="tap_btns" class="tap_btn">
+                            <label for="tap4" class="btns_name" id="btn4">키즈/애니메이션</label>
+                            <div id="tap4_sub" class="tap_sub">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul></div>
+                        </li>
+                        <li>
+                            <input id="tap5" type="radio" name="tap_btns" class="tap_btn">
+                            <label for="tap5" class="btns_name" id="btn5">기타</label>
+                            <div id="tap5_sub" class="tap_sub">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!--//best_item_info-->
+            </div><!--//best_item-->
+                
+            <div id="review">
+                <h2>Gallery</h2>
+                <div id="review_img">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div><!--//reiv_img-->
+            </div><!--//review-->
+
+            <div id="notice">
+                <h2>Notice</h2>
+                <table>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>작성일</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>안녕하세요</td>
+                        <td>관리자</td>
+                        <td>sysdate</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="pub">
+                <h2>Promotion</h2>
+            </div>
+        </main><!--//main-->
+        
+        <%@include file="footer.jsp" %>
+    </div><!--//wrap-->
+</body>
+</html>

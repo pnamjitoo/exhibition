@@ -1,0 +1,15 @@
+/**
+ * 
+ */ 
+ ;(function($){
+    $(function(){
+		 $("#regist_open").click(function(){
+            $("#mypage_wrap").add(this).toggleClass("open");
+            $("#profile_regist").add(this).toggleClass("open");
+        });
+        $("#regist_close").click(function(){
+            $("#mypage_wrap").add(this).toggleClass("open");
+            $("#profile_regist").add(this).toggleClass("open");
+        });
+            });
+})(jQuery);

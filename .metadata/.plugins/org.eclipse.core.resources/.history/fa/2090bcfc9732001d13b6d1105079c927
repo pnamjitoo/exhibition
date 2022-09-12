@@ -1,0 +1,7 @@
+package com.exhibition.item;
+
+import com.exhibition.controller.Action;
+
+public class ItemViewAction implements Action {
+
+}

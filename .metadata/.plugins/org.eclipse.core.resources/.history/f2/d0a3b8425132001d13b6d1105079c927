@@ -1,0 +1,57 @@
+package com.exhibition.item;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.exhibition.controller.Action;
+import com.exhibition.tema.TemaDAO;
+import com.exhibition.tema.TemaVO;
+
+public class ItemListAction implements Action {
+	@Override
+	  public void execute(HttpServletRequest request, HttpServletResponse response)
+	  throws ServletException, IOException { 
+			HttpSession session = request.getSession();
+			session.setAttribute("item_list", "true");
+			request.setCharacterEncoding("utf-8");
+			response.setContentType("text/html;charset=utf-8");
+			response.getWriter().write(getJson());
+			
+		}
+	//ajax 통신 이용
+	public String getJson(){
+		StringBuffer result = new StringBuffer("");
+		ItemDAO iDao = ItemDAO.getInstance();
+		List<ItemVO> itemList = iDao.selectAllItems();
+		result.append("{\"result\":[");
+		for (int i = 0; i<itemList.size() - 1; i++) {
+			result.append("{\"item_no\": \"" + itemList.get(i).getItem_no() + "\",");
+			result.append("\"tema_no\": \"" + itemList.get(i).getItem_name() + "\",");
+			result.append("{\"tema_no\": \"" + itemList.get(i).getPrice() + "\",");
+			result.append("{\"tema_no\": \"" + itemList.get(i).getBenefit() + "\",");
+			result.append("{\"tema_no\": \"" + itemList.get(i).getSale() + "\",");
+			result.append("{\"tema_no\": \"" + itemList.get(i).getNum() + "\",");
+			result.append("{\"tema_no\": \"" + itemList.get(i).getItem_content() + "\",");
+			result.append("{\"tema_no\": \"" + itemList.get(i).getPlace() + "\",");
+			result.append("{\"tema_no\": \"" + itemList.get(i).getLocation() + "\",");
+			result.append("{\"tema_no\": \"" + itemList.get(i).getLikes() + "\",");
+			result.append("{\"tema_no\": \"" + itemList.get(i).getHits() + "\",");
+			result.append("{\"tema_no\": \"" + itemList.get(i).getOpendate() + "\",");
+			result.append("{\"tema_no\": \"" + itemList.get(i).getClosedate() + "\",");
+			result.append("{\"tema_no\": \"" + itemList.get(i).getItem_photo + "\",");
+			result.append("{\"tema_no\": \"" + itemList.get(i).getRuntime() + "\",");
+			result.append("{\"tema_no\": \"" + itemList.get(i).getItem_rdate() + "\",");
+			result.append("{\"tema_no\": \"" + itemList.get(i).getTema_no() + "\"},");
+		}
+		result.append("{\"tema_no\": \"" + itemList.get(itemList.size() - 1).getTema_no() + "\",");
+		result.append("\"tname\": \"" + itemList.get(itemList.size() - 1).getTname() + "\"}]}");
+		return result.toString();
+
+		 
+	}
+}

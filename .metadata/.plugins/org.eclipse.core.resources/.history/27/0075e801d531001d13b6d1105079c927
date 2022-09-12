@@ -1,0 +1,5 @@
+package com.exhibition.tema;
+
+public @interface ResponseBody {
+
+}
